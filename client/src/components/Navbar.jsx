@@ -84,9 +84,23 @@ const Navbar = () => {
                                     navigate(link.link);
                                 }}
                             >
-                                <img src={link.imgUrl} alt={link.name} />
-                                <p className={`ml-[20px] font-epilogue font-semibold text-[14px] ${isActive === link.name ? 'text-[]'}`}>
-                                  {link.name}  
+                                <img
+                                    src={link.imgUrl}
+                                    alt={link.name}
+                                    className={`w-[24px] h-[24px] object-contain ${
+                                        isActive === link.name
+                                            ? "grayscale-0"
+                                            : "grayscale"
+                                    }`}
+                                />
+                                <p
+                                    className={`ml-[20px] font-epilogue font-semibold text-[14px] ${
+                                        isActive === link.name
+                                            ? "text-[#1dc071]"
+                                            : "text-[#808191"
+                                    }`}
+                                >
+                                    {link.name}
                                 </p>
                             </li>
                         ))}
