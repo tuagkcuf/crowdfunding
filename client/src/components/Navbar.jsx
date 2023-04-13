@@ -65,11 +65,15 @@ const Navbar = () => {
                     src={menu}
                     alt="menu"
                     className="w-[34px] h-[34px] object-contain cursor-pointer"
-                    onClick={() => setToggleDrawer(!toggleDrawer)}
+                    onClick={() => setToggleDrawer((prev) => !prev)}
                 />
 
                 <div
-                    className={`absolute top-[60px] right-0 left-0 bg-[#1c1c24] z-10 shadow-secondary py-4 ${!toggleDrawer} ? '-translate-y-[100vh]' : 'translate-y-[0]' transition-all duration-700`}
+                    className={`absolute top-[60px] right-0 left-0 bg-[#1c1c24] z-10 shadow-secondary py-4 ${
+                        !toggleDrawer
+                            ? "-translate-y-[100vh]"
+                            : "translate-y-[0]"
+                    } transition-all duration-700`}
                 >
                     <ul className="mb-4">
                         {navlinks.map((link) => (
@@ -105,6 +109,18 @@ const Navbar = () => {
                             </li>
                         ))}
                     </ul>
+
+                    <div className="flex mx-4">
+                        <CustomButton
+                            btnType="button"
+                            title={address ? "Create a campaign" : "Connect"}
+                            styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
+                            handleClick={() => {
+                                if (address) navigate("create-campaign");
+                                else "connect()";
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
