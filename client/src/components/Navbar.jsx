@@ -41,7 +41,7 @@ const Navbar = () => {
                 />
 
                 <Link to="profile">
-                    <div className="w-[40px] h-[40px] rounded-[10px] bg-[#2c2f32] flex justify-center items-center cursor-pointer">
+                    <div className="w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer">
                         <img
                             src={thirdweb}
                             alt="user"
@@ -49,6 +49,49 @@ const Navbar = () => {
                         />
                     </div>
                 </Link>
+            </div>
+
+            {/* small screen navigation */}
+            <div className="sm:hidden flex justify-between items-center relative">
+                <div className="w-[40px] h-[40px] rounded-[10px] bg-[#2c2f32] flex justify-center items-center cursor-pointer">
+                    <img
+                        src={thirdweb}
+                        alt="user"
+                        className="w-[60%] h-[60%] object-contain"
+                    />
+                </div>
+
+                <img
+                    src={menu}
+                    alt="menu"
+                    className="w-[34px] h-[34px] object-contain cursor-pointer"
+                    onClick={() => setToggleDrawer(!toggleDrawer)}
+                />
+
+                <div
+                    className={`absolute top-[60px] right-0 left-0 bg-[#1c1c24] z-10 shadow-secondary py-4 ${!toggleDrawer} ? '-translate-y-[100vh]' : 'translate-y-[0]' transition-all duration-700`}
+                >
+                    <ul className="mb-4">
+                        {navlinks.map((link) => (
+                            <li
+                                key={link.name}
+                                className={`flex p-4 ${
+                                    isActive === link.name && "bg-[#3a3a43]"
+                                }`}
+                                onClick={() => {
+                                    setIsActive(link.name);
+                                    setToggleDrawer(false);
+                                    navigate(link.link);
+                                }}
+                            >
+                                <img src={link.imgUrl} alt={link.name} />
+                                <p className={`ml-[20px] font-epilogue font-semibold text-[14px] ${isActive === link.name ? 'text-[]'}`}>
+                                  {link.name}  
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );
