@@ -75,7 +75,7 @@ const Navbar = () => {
                             : "translate-y-[0]"
                     } transition-all duration-700`}
                 >
-                    <ul className="mb-4">
+                    <ul className="mb-4 cursor-pointer">
                         {navlinks.map((link) => (
                             <li
                                 key={link.name}
@@ -101,7 +101,7 @@ const Navbar = () => {
                                     className={`ml-[20px] font-epilogue font-semibold text-[14px] ${
                                         isActive === link.name
                                             ? "text-[#1dc071]"
-                                            : "text-[#808191"
+                                            : "text-[#808191]"
                                     }`}
                                 >
                                     {link.name}
