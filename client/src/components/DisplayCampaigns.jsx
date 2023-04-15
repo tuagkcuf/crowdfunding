@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import FundCard from "./FundCard";
-import { loader } from "..assets";
+import { loader } from "../assets";
 
 const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
     const navigate = useNavigate();
