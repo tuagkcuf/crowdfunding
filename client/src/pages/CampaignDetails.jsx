@@ -17,6 +17,10 @@ const CampaignDetails = () => {
 
     const remainingDays = daysLeft(state.deadline);
 
+    const handleDonate = async () => {
+
+    }
+
     return (
         <div>
             {isLoading && "Loading..."}
@@ -112,7 +116,7 @@ const CampaignDetails = () => {
                         Fund
                     </h4>
 
-                    <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
+                    <div className="my-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
                         <p className="font-epilogue font-medium text-[20px] leading-[30px] text-center text-[#808191]">
                             Fund the campaign
                         </p>
@@ -128,7 +132,22 @@ const CampaignDetails = () => {
                                 onChange={(e) => setAmount(e.target.value)}
                             />
 
-                            <div></div>
+                            <div className="mt-[20px] p-4 bg-[#13131a] rounded-[10px]">
+                                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">
+                                    Back it because you believe in it.
+                                </h4>
+                                <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">
+                                    Support the project for no reward, just
+                                    because it speaks to you.
+                                </p>
+                            </div>
+
+                            <CustomButton
+                                btnType="button"
+                                title="Fund Campaign"
+                                styles="w-full bg-[#8c6dfd]"
+                                handleClick={handleDonate}
+                            />
                         </div>
                     </div>
                 </div>
