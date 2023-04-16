@@ -11,7 +11,7 @@ const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
     const { contract } = useContract(
-        "0x795A7d215f21433b1A02450410F23861d5ED048A"
+        "0xC6Ca796f9FAF7Ca659668C89391C2FD6BFa0c1e7"
     );
     const { mutateAsync: createCampaign } = useContractWrite(
         contract,
@@ -23,14 +23,14 @@ export const StateContextProvider = ({ children }) => {
 
     const publishCampaign = async (form) => {
         try {
-            const data = await createCampaign([
+            const data = await createCampaign({args: [
                 address,
                 form.title,
                 form.description,
                 form.target,
                 new Date(form.deadline).getTime(),
                 form.image,
-            ]);
+            ]});
 
             console.log("contract call success", data);
         } catch (error) {
